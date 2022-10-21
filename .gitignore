@@ -1,0 +1,17 @@
+.idea
+
+/fronend-teaoclock/build/
+/fronend-teaoclock/node_modules/
+
+/discserv-teaoclock/target/
+/discserv-teaoclock/.idea/
+
+/jpa-teaoclock/.idea/
+/jpa-teaoclock/target/
+/jpa-teaoclock/data/
+
+/mongo-teaoclock/.idea/
+/mongo-teaoclock/target/
+
+/processor-teaoclock/.idea/
+/processor-teaoclock/target/
