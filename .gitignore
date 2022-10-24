@@ -16,9 +16,9 @@
 /mongo-teaoclock/target/
 /mongo-teaoclock/.mvn
 
-/resr-processor-teaoclock/.idea/
-/resr-processor-teaoclock/target/
-/resr-processor-teaoclock/.mvn
+/rest-processor-teaoclock/.idea/
+/rest-processor-teaoclock/target/
+/rest-processor-teaoclock/.mvn
 
 /reactive-processor-teaoclock/.idea/
 /reactive-processor-teaoclock/target/
