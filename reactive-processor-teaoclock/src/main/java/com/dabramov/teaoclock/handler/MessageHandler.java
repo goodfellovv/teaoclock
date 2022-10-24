@@ -1,6 +1,5 @@
 package com.dabramov.teaoclock.handler;
 
-import com.dabramov.teaoclock.dto.AddresseeDto;
 import com.dabramov.teaoclock.dto.MessageDto;
 import com.dabramov.teaoclock.server.DataServer;
 import lombok.RequiredArgsConstructor;

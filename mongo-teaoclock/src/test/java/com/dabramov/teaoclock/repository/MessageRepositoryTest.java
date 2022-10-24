@@ -1,13 +1,11 @@
 package com.dabramov.teaoclock.repository;
 
 import com.dabramov.teaoclock.entity.Message;
-import com.dabramov.teaoclock.repository.AddresseeRepository;
 import com.dabramov.teaoclock.repository.MessageRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 

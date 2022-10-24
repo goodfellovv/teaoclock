@@ -34,7 +34,7 @@ public class AddresseeController {
 
     @PostMapping("/addressees")
     public Addressee saveAddressee(@RequestBody Addressee addressee) {
-        if(Objects.nonNull(addressee.getMessage())){
+        if (Objects.nonNull(addressee.getMessage())) {
             Message message = messageRepository.findById(addressee.getMessage().getId()).orElse(null);
             addressee.setMessage(message);
         }

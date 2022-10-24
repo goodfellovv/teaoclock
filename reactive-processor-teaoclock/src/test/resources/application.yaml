@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  spring:
+    cloud:
+      config:
+        enabled: false
+        discovery:
+          enabled: false
+    application:
+      name: reactive-processor-teaoclock
+  profiles:
+    active:
+#      - quartz
+#      - scheduled
+  mail:
+    host: smtp.yandex.com
+    port: 465
+    username:
+    password:
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.starttls.enable: true
+      mail.debug: true
+#email.cron: "0 0 17 * * MON,TUE,WED,THU,FRI"
+data.server.url: "http://localhost:8081/api/" #jpa
+#data.server.url: "http://localhost:8082/api/" #mongo
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:9000/eureka
+    instance:
+    preferIpAddress: true

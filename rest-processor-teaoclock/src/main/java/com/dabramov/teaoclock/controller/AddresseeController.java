@@ -1,7 +1,7 @@
 package com.dabramov.teaoclock.controller;
 
-import com.dabramov.teaoclock.server.DataServer;
 import com.dabramov.teaoclock.dto.AddresseeDto;
+import com.dabramov.teaoclock.server.DataServer;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

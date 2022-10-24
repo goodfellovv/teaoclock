@@ -16,9 +16,9 @@ import java.util.*;
 @Service
 @RequiredArgsConstructor
 public class DataServerImpl implements DataServer {
+    private final RestTemplate restTemplate;
     @Value("${data.server.url}")
     private String dataServerUrl;
-    private final RestTemplate restTemplate;
 
     @Override
     @SneakyThrows(URISyntaxException.class)

@@ -35,7 +35,7 @@ public class MessageController {
 
     @PostMapping("/messages")
     public Message saveMessage(@RequestBody Message message) {
-        if(Objects.nonNull(message.getAddressees())){
+        if (Objects.nonNull(message.getAddressees())) {
             List<String> addresseeIds = message.getAddressees().stream().map(Addressee::getId).collect(Collectors.toList());
             Iterable<Addressee> addressees = addresseeRepository.findAllById(addresseeIds);
             message.setAddressees((List<Addressee>) addressees);

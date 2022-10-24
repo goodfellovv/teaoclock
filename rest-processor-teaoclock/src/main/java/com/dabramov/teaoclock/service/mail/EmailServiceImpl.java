@@ -1,7 +1,7 @@
 package com.dabramov.teaoclock.service.mail;
 
-import com.dabramov.teaoclock.server.DataServer;
 import com.dabramov.teaoclock.dto.AddresseeDto;
+import com.dabramov.teaoclock.server.DataServer;
 import lombok.AllArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;

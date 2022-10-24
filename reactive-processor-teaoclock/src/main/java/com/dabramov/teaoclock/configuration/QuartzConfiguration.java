@@ -12,11 +12,11 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("quartz")
 public class QuartzConfiguration {
-    @Value("${email.cron}")
-    private String emailCron;
     private final String GROUP_NAME = "QuartzEmailGroup";
     private final String TRIGGER_NAME = "QuartzEmailTrigger";
     private final String JOB_NAME = "QuartzEmailJob";
+    @Value("${email.cron}")
+    private String emailCron;
 
     @Bean
     @Primary

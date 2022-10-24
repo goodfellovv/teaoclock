@@ -1,7 +1,7 @@
 package com.dabramov.teaoclock.controller;
 
-import com.dabramov.teaoclock.server.DataServer;
 import com.dabramov.teaoclock.dto.AddresseeDto;
+import com.dabramov.teaoclock.server.DataServer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(AddresseeController.class)
 class AddresseeControllerTest {
-    private String BASE_URL = "/addressees";
+    private final String BASE_URL = "/addressees";
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired

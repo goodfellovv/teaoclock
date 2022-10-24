@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(MessageController.class)
 class MessageControllerTest {
-    private String BASE_URL = "/api/messages";
+    private final String BASE_URL = "/api/messages";
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired

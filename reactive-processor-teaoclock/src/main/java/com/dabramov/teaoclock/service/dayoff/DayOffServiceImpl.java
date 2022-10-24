@@ -8,11 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Year;
 import java.util.Objects;
 
 @Service

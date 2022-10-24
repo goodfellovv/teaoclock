@@ -17,9 +17,9 @@ public interface DataServer {
 
     Mono<MessageDto> getMessage(String id);
 
-    Mono<MessageDto[]>  getAllMessages();
+    Mono<MessageDto[]> getAllMessages();
 
-    Mono<MessageDto[]>  getAllMessagesByIds(String ids);
+    Mono<MessageDto[]> getAllMessagesByIds(String ids);
 
     Mono<MessageDto> saveMessage(Mono<MessageDto> message);
 

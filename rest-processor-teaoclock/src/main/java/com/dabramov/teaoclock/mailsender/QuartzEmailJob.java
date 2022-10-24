@@ -19,7 +19,7 @@ public class QuartzEmailJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) {
-        if(!dayOffService.isDayOff(LocalDate.now().getDayOfYear())) {
+        if (!dayOffService.isDayOff(LocalDate.now().getDayOfYear())) {
             emailService.sendEmailToAll();
         }
     }

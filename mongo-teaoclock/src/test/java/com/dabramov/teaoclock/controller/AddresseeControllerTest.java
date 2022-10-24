@@ -1,6 +1,5 @@
 package com.dabramov.teaoclock.controller;
 
-
 import com.dabramov.teaoclock.entity.Addressee;
 import com.dabramov.teaoclock.repository.AddresseeRepository;
 import com.dabramov.teaoclock.repository.MessageRepository;
@@ -26,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(AddresseeController.class)
 class AddresseeControllerTest {
-    private String BASE_URL = "/api/addressees";
+    private final String BASE_URL = "/api/addressees";
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired

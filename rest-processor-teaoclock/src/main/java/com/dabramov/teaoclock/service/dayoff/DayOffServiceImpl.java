@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.Objects;
 
@@ -18,8 +17,8 @@ import java.util.Objects;
 @Profile({"quartz", "scheduled"})
 @RequiredArgsConstructor
 public class DayOffServiceImpl implements DayOffService {
-    private byte[] dayOffCalendar = new byte[] {};
     private final RestTemplate restTemplate;
+    private byte[] dayOffCalendar = new byte[]{};
 
     @EventListener(ApplicationReadyEvent.class)
     @SneakyThrows
@@ -28,10 +27,10 @@ public class DayOffServiceImpl implements DayOffService {
     }
 
     private byte[] loadWorkCalendar() throws URISyntaxException {
-        byte[] dayOffCalendar = new byte[] {};
+        byte[] dayOffCalendar = new byte[]{};
         URI url = new URI("https://isdayoff.ru/api/getdata?delimeter=%2C&year=" + Year.now());
         String response = restTemplate.getForEntity(url, String.class).getBody();
-        if(Objects.nonNull(response)){
+        if (Objects.nonNull(response)) {
             String[] numberStr = response.split(",");
             dayOffCalendar = new byte[numberStr.length];
             for (int i = 0; i < numberStr.length; i++) {
