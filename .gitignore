@@ -5,13 +5,21 @@
 
 /discserv-teaoclock/target/
 /discserv-teaoclock/.idea/
+/discserv-teaoclock/.mvn
 
 /jpa-teaoclock/.idea/
 /jpa-teaoclock/target/
 /jpa-teaoclock/data/
+/jpa-teaoclock/.mvn
 
 /mongo-teaoclock/.idea/
 /mongo-teaoclock/target/
+/mongo-teaoclock/.mvn
 
-/processor-teaoclock/.idea/
-/processor-teaoclock/target/
+/resr-processor-teaoclock/.idea/
+/resr-processor-teaoclock/target/
+/resr-processor-teaoclock/.mvn
+
+/reactive-processor-teaoclock/.idea/
+/reactive-processor-teaoclock/target/
+/reactive-processor-teaoclock/.mvn
