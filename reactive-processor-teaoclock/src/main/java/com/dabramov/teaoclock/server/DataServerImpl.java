@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -23,26 +24,26 @@ public class DataServerImpl implements DataServer {
     }
 
     @Override
-    public Mono<AddresseeDto[]> getAllAddressees() {
+    public Flux<AddresseeDto> getAllAddressees() {
         return webClient.get()
                 .uri("addressees")
                 .retrieve()
-                .bodyToMono(AddresseeDto[].class);
+                .bodyToFlux(AddresseeDto.class);
     }
 
     @Override
-    public Mono<AddresseeDto[]> getAllAddresseesByIds(String ids) {
+    public Flux<AddresseeDto> getAllAddresseesByIds(String ids) {
         return webClient.get()
                 .uri(builder -> builder.path("addressees").queryParam("ids", ids).build())
                 .retrieve()
-                .bodyToMono(AddresseeDto[].class);
+                .bodyToFlux(AddresseeDto.class);
     }
 
     @Override
     public Mono<AddresseeDto> saveAddressee(Mono<AddresseeDto> addressee) {
         return webClient.post()
                 .uri("addressees")
-                .bodyValue(addressee)
+                .body(addressee, AddresseeDto.class)
                 .retrieve()
                 .bodyToMono(AddresseeDto.class);
     }
@@ -64,25 +65,25 @@ public class DataServerImpl implements DataServer {
     }
 
     @Override
-    public Mono<MessageDto[]> getAllMessages() {
+    public Flux<MessageDto> getAllMessages() {
         return webClient.get()
                 .uri("messages")
                 .retrieve()
-                .bodyToMono(MessageDto[].class);
+                .bodyToFlux(MessageDto.class);
     }
 
     @Override
-    public Mono<MessageDto[]> getAllMessagesByIds(String ids) {
+    public Flux<MessageDto> getAllMessagesByIds(String ids) {
         return webClient.get()
                 .uri(builder -> builder.path("messages").queryParam("ids", ids).build())
                 .retrieve()
-                .bodyToMono(MessageDto[].class);
+                .bodyToFlux(MessageDto.class);
     }
 
     public Mono<MessageDto> saveMessage(Mono<MessageDto> message) {
         return webClient.post()
                 .uri("messages")
-                .bodyValue(message)
+                .body(message, MessageDto.class)
                 .retrieve()
                 .bodyToMono(MessageDto.class);
     }

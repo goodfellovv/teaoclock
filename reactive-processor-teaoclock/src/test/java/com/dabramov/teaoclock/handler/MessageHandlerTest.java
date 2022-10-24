@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RunWith(SpringRunner.class)
@@ -26,14 +27,15 @@ public class MessageHandlerTest {
     private ApplicationContext context;
     @MockBean
     private DataServer dataServer;
+    private final String BASE_URL = "http://localhost/messages";
 
     @Test
     public void testGetAllMessages() {
         MessageDto[] data = {new MessageDto(), new MessageDto(), new MessageDto()};
-        Mono<MessageDto[]> mono = Mono.just(data);
-        Mockito.when(dataServer.getAllMessages()).thenReturn(mono);
+        Flux<MessageDto> flux = Flux.fromArray(data);
+        Mockito.when(dataServer.getAllMessages()).thenReturn(flux);
         this.webClient.get()
-                .uri("http://localhost/messages/getAll")
+                .uri(BASE_URL + "/getAll")
                 .exchange()
                 .expectStatus()
                 .isOk()
@@ -44,10 +46,10 @@ public class MessageHandlerTest {
     @Test
     public void testGetAllMessagesByIds() {
         MessageDto[] data = {new MessageDto(), new MessageDto(), new MessageDto()};
-        Mono<MessageDto[]> mono = Mono.just(data);
-        Mockito.when(dataServer.getAllMessagesByIds("1,2")).thenReturn(mono);
+        Flux<MessageDto> flux = Flux.fromArray(data);
+        Mockito.when(dataServer.getAllMessagesByIds("1,2")).thenReturn(flux);
         this.webClient.get()
-                .uri("http://localhost/messages/getAll?ids=1,2")
+                .uri(BASE_URL + "/getAll?ids=1,2")
                 .exchange()
                 .expectStatus()
                 .isOk()
@@ -61,7 +63,7 @@ public class MessageHandlerTest {
         Mono<MessageDto> mono = Mono.just(data);
         Mockito.when(dataServer.saveMessage(Mockito.any())).thenReturn(mono);
         this.webClient.post()
-                .uri("http://localhost/messages/save")
+                .uri(BASE_URL + "/save")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(data))
                 .exchange()
@@ -75,7 +77,7 @@ public class MessageHandlerTest {
     public void testDeleteMessage() {
         Mockito.when(dataServer.deleteMessage(Mockito.anyString())).thenReturn(Mono.empty());
         this.webClient.delete()
-                .uri("http://localhost/messages" + "/1")
+                .uri(BASE_URL + "/1")
                 .exchange()
                 .expectStatus()
                 .isOk();
